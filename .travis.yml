@@ -14,13 +14,16 @@ before_script:
 - make all
 - make downloadGoMobile
 script:
-- go test -p 1 -tags json -v github.com/xiaokangwang/AndroidLibV2ray/...
+- go test -p 1 -tags json -v github.com/Astinj/AndroidLibV2ray/...
 - make BuildMobile
 after_success: 
 deploy:
   provider: releases
   api_key:
     secure: ZFamktdzCfArI5pQKAZGID4FxXciT1y7nhmQ9Fb8xFrgDcJN81h+2+gruhZF8F5CgAGBsCzQ8woalmSAcNA+DRG3dRrpb9uPDOHvoVnlH/7dIA7nRlz63HN0maCouZIvzI46lsWsvPNBU3UHD3oSTvmD8FjDrVpwDyURCCewqS8dA/Nx8ReMYXTcU9Gg/X4OFFUuLxIrB4Xm5olEwPDeenzkpSkhIl9Dtv28CtOOVN7kayiiw2eVjHVvaNpto4rmARzS0bB5/i+Mcm9pIbkITueZGSfny9bxUnDUCOvwEspBi8PWTaoOhWGK/eRyBj/E5iL6gDnc7+X96JdWknZbUsFIZsMLmKZQH316vkQc7EywtSGGXC1C9K9nrQErh2TXj3nnzgNFnW6RhQz5hDwjwuaXkOd0HaDObqAjNXFMmPfq3atx1QJ/7neFzasQkxcIMKZXhkWm6Wr4Bbf4mXcws4dlRMtVg0nkC97C4CjmCE6EeXmLyYf2xTTq3+VwOKydjyqkUbDbbcFsuTLEIQVXVYDE+MFXrd/52bNboFIVRsdMQk7YjUTd/cFhFQOPClnNE1Dn8116mOJuNBg+CLxFYe531DYzfLR9kdGyj+1SzlFD/5OGwhxTVAEFyJO9sTYFACEZjPAC0CydjfaB2ZVzKEEn2UTXiN1oYWBLqIJ/Yf0=
-  file: libv2ray.aar
+  file:
+    - libv2ray.aar
+  skip_cleanup: true
   on:
+    tags: true
     repo: Astinj/AndroidLibV2ray
